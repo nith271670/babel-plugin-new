@@ -7,7 +7,14 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build": "npm run build:js",
-    "build:js": "babel src/ -d lib --plugins ./plugins/plugin.js --extensions \".tsx\""
+    "build:js": "babel src/ -d lib --plugins ./plugins/plugin.js --extensions \".tsx\"",
+    "test": "npm run test:js",
+    "test:js": "babel tests/ -d lib --plugins ./plugins/plugin.js --extensions \".tsx\" && jest --coverage"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    }
   },
   "author": "",
   "license": "ISC",
@@ -22,7 +29,7 @@
     "@babel/plugin-proposal-json-strings": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.0.0",
     "@babel/register": "^7.0.0",
@@ -30,11 +37,12 @@
     "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.3",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^22.4.4",
+    "babel-jest": "^23.6.0",
     "babel-plugin-module-resolver": "^3.0.0",
+    "babel-plugin-tester": "^6.0.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
-    "jest": "21.3.0-beta.9",
+    "jest": "^23.6.0",
     "nodemon": "^1.12.1",
     "tslint": "^5.8.0",
     "tslint-config-standard": "^7.0.0",
@@ -42,6 +50,7 @@
     "typescript": "^2.6.1"
   },
   "dependencies": {
+    "natives": "^1.1.6",
     "react": "^16.1.1",
     "react-dom": "^16.1.1"
   }

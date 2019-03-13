@@ -1,7 +1,7 @@
 var fs = require("fs");
 var result = {};
 
-function getlabelTags(node) {
+function getLabelTags(node) {
   if (node.name.name == "Label") {
     var attribute_arr = [];
     attribute_arr = node.attributes;
@@ -14,7 +14,6 @@ function getAttributes(attribute_arr) {
   var attr_obj = {};
   attribute_arr.forEach(attribute => {
     if (attribute.name.name == "uuid") {
-      // console.log(attribute);
       uuid = attribute.value.value;
     } else {
       attr_obj[attribute.name.name] = attribute.value.value;
@@ -37,12 +36,12 @@ function writeToJsonFile(result) {
   });
 }
 
-module.exports = function() {
+module.exports = function babelParser() {
   return {
     name: "extract-label-tags-with-uuid",
     visitor: {
       JSXOpeningElement: function JSXOpeningElement(path) {
-        getlabelTags(path.node);
+        getLabelTags(path.node);
       }
     }
   };
