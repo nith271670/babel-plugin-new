@@ -32,7 +32,7 @@ function generateResultObj(uuid, attr_obj) {
 }
 
 function writeToJsonFile(result) {
-  fs.writeFile("labelList.json", JSON.stringify(result, null, "\t"), err => {
+  fs.writeFile("label-tag-export.json", JSON.stringify(result, null, "\t"), err => {
     if (err) throw err;
   });
 }
