@@ -1,6 +1,6 @@
 const babelParser = require("../plugins/plugin");
 const fs = require("fs");
-const astJson = require("./astExtract.json");
+const astJson = require("./astExtract.json"); // mocking the ast output
 
 describe("babel plugin tests", () => {
   it("should check for label and uuid ", () => {
